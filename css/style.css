@@ -1,0 +1,218 @@
+body {
+    background: url('../assets/images/background.png') center top / cover no-repeat;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-top: 250px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    color: #ffffff;
+    background-color: #ff5722;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #e64a19;
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    font-size: 0.8em;
+    color: #cccccc;
+}
+
+#start-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;  
+}
+
+#start-game button {
+    padding: 20px 30px;   
+    font-size: 1.4em;     
+    margin: 10px 0;       
+}
+
+#members {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 10px;
+    text-align: left;
+}
+
+#members ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#members li {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.contact-info {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    padding: 10px;
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+#contact-info {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 10px;
+    text-align: left;
+}
+
+
+/* Top-left container for return button, language selector, and music button */
+#top-left-controls {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Return Home button */
+#return-home a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#return-home a:hover {
+    background-color: #e64a19;
+}
+
+/* Style the language selector */
+#language-switcher select {
+    padding: 8px;
+    font-size: 1em;
+}
+
+/* Style for the close (mute) music button */
+#close-music {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#close-music:hover {
+    background-color: #e64a19;
+}
+
+/* --- Download button --- */
+.download_button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    color: #ffffff;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.download_button:hover {
+    background-color: blueviolet;
+}
+
+.close-music-main {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+/* --- Enhance text readability with white background --- */
+header p,
+h2,
+.button,
+.download_button,
+.footer p * {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust opacity as needed */
+    color: #000000;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+#crowdfunding-info {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* adjust vertical spacing as needed */
+}
+
+.crowdfunding-text {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 800px; /* Adjust width as needed */
+    margin: 0 auto;
+}
+
+#game-intro {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 800px;
+    margin: 0 auto;
+}
