@@ -1,0 +1,49 @@
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.classList.add('loaded');
+    const members = document.getElementById('members');
+    const leftArrow = document.getElementById('left-arrow');
+    const rightArrow = document.getElementById('right-arrow');
+    let currentIndex = 0;
+
+    leftArrow.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateMembers();
+        }
+    });
+
+    rightArrow.addEventListener('click', () => {
+        if (currentIndex < members.children.length - 1) {
+            currentIndex++;
+            updateMembers();
+        }
+    });
+
+    members.addEventListener('transitionend', () => {
+        if (currentIndex === 0) {
+            leftArrow.style.display = 'none';
+        } else {
+            leftArrow.style.display = 'block';
+        }
+
+        if (currentIndex === members.children.length - 1) {
+            rightArrow.style.display = 'none';
+        } else {
+            rightArrow.style.display = 'block';
+        }
+    });
+
+    // Function to update the members display
+    function updateMembers() {
+        const offset = -currentIndex * 100; // Shift by 100% for each member
+        members.style.transform = `translateX(${offset}%)`;
+    
+        // Add active class to the current member
+        Array.from(members.children).forEach((member, index) => {
+            member.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    // Initialize with the first member
+    updateMembers();
+});

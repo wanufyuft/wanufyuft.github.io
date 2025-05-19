@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Members - Slumberland Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top-left controls -->
+    <div id="top-left-controls">
+        <div id="return-home">
+            <a href="index.html" id="return-home-link">返回首页</a>
+        </div>
+        <div id="language-switcher">
+            <select id="language-select">
+                <option value="zh">中文</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="gallery">
+        <div class="profile" data-key="Nico Wang" onclick="showDescription('Nico Wang')">
+            <img src="assets/images/members_picture/nico.jpg" alt="Nico Wang">
+            <div class="profile-name">Nico Wang</div>
+        </div>
+
+        <div class="profile" data-key="Ray Wang" onclick="showDescription('Ray Wang')">
+            <img src="assets/images/members_picture/Ray.jpg" alt="Ray Wang">
+            <div class="profile-name">Ray Wang</div>
+        </div>
+
+        <div class="profile" data-key="Hardy Hu" onclick="showDescription('Hardy Hu')">
+            <img src="assets/images/members_picture/Hardy.jpg" alt="Hardy Hu">
+            <div class="profile-name">Hardy Hu</div>
+        </div>
+
+        <div class="profile" data-key="Colin Hu" onclick="showDescription('Colin Hu')">
+            <img src="assets/images/members_picture/Colin.jpg" alt="Colin Hu">
+            <div class="profile-name">Colin Hu</div>
+        </div>
+
+        <div class="profile" data-key="Drake Guo" onclick="showDescription('Drake Guo')">
+            <img src="assets/images/members_picture/Drake.jpg" alt="Drake Guo">
+            <div class="profile-name">Hardy Hu</div>
+        </div>
+
+        <div class="profile" data-key="Jayden Liu" onclick="showDescription('Jayden Liu')">
+            <img src="assets/images/members_picture/Jayden.jpg" alt="Jayden Liu">
+            <div class="profile-name">Jayden Liu</div>
+        </div>
+
+        <div class="profile" data-key="Connie Chen" onclick="showDescription('Connie Chen')">
+            <img src="assets/images/members_picture/Cornei.jpg" alt="Connie Chen">
+            <div class="profile-name">Connie Chen</div>
+        </div>
+        
+        <div class="profile" data-key="George Zhu" onclick="showDescription('George Zhu')">
+            <img src="assets/images//members_picture/Geoge.jpg" alt="George Zhu">
+            <div class="profile-name">George Zhu</div>
+        </div>
+        
+        <div class="profile" data-key="Eric Zhang" onclick="showDescription('Eric Zhang')">
+            <img src="assets/images/members_picture/Eric.jpg" alt="Eric Zhang">
+            <div class="profile-name">Eric Zhang</div>
+        </div>
+        
+        <div class="profile" data-key="Mr.Brown" onclick="showDescription('Mr.Brown')">
+            <img src="assets/images/game picture/2.jpg" alt="Mr.Brown">
+            <div class="profile-name">Mr.Brown</div>
+        </div>
+    </div>
+
+    <div id="description"></div>
+
+    <script>
+    // Translation data for names and descriptions
+    const members = {
+        'Nico Wang': {
+            name: { zh: 'Nico Wang', en: 'Nico Wang' },
+            desc: { zh: '团队经理。', en: 'Team manager.' }
+        },
+        'Ray Wang': {
+            name: { zh: 'Ray Wang', en: 'Ray Wang' },
+            desc: { zh: '程序员。', en: 'Programmer.' }
+        },
+        'Hardy Hu': {
+            name: { zh: 'Hardy Hu', en: 'Hardy Hu' },
+            desc: { zh: '程序员，音乐人。', en: 'Programmer, musician.' }
+        },
+        'Colin Hu': {
+            name: { zh: 'Colin Hu', en: 'Colin Hu' },
+            desc: { zh: '战斗设计师。', en: 'Combat designer.' }
+        },
+        'Drake Guo': {
+            name: { zh: 'Drake Guo', en: 'Drake Guo' },
+            desc: { zh: '世界观、剧本。', en: 'World view, scriptwriter.' }
+        },
+        'Jayden Liu': {
+        name: { zh: 'Jayden Liu', en: 'Jayden Liu' },
+        desc: { zh: '世界观、剧本。', en: 'World view, scriptwriter.' }
+        },
+        'Connie Chen': {
+            name: { zh: 'Connie Chen', en: 'Connie Chen' },
+            desc: { zh: 'UI设计师。', en: 'UI designer.' }
+        },
+        'George Zhu': {
+            name: { zh: 'George Zhu', en: 'George Zhu' },
+            desc: { zh: '关卡设计师。', en: 'Level designer.' }
+        },
+        'Eric Zhang': {
+            name: { zh: 'Eric Zhang', en: 'Eric Zhang' },
+            desc: { zh: '关卡设计师。', en: 'Level designer.' }
+        },
+        'Mr.Brown': {
+            name: { zh: 'Mr.Brown', en: 'Mr. Brown' },
+            desc: { zh: '顾问。', en: 'Advisor.' }
+        }
+    };
+
+    // Default language
+    let currentLang = 'zh';
+
+    // Show description for a member
+    function showDescription(key) {
+        const desc = members[key]?.desc[currentLang] || '';
+        document.getElementById('description').innerText = desc;
+    }
+
+    // Update all names and the return home link
+    function updateLanguage() {
+        // Update profile names
+        document.querySelectorAll('.profile').forEach(profile => {
+            const key = profile.getAttribute('data-key');
+            profile.querySelector('.profile-name').innerText = members[key].name[currentLang];
+        });
+        // Update return home link
+        document.getElementById('return-home-link').innerText = currentLang === 'zh' ? '返回首页' : 'Return Home';
+        // Update description if visible
+        const descDiv = document.getElementById('description');
+        const shownProfile = Array.from(document.querySelectorAll('.profile')).find(profile => {
+            // Check if this profile's description is currently shown
+            return descDiv.innerText === members[profile.getAttribute('data-key')].desc[currentLang === 'zh' ? (currentLang === 'zh' ? 'en' : 'zh') : (currentLang === 'en' ? 'zh' : 'en')];
+        });
+        if (shownProfile) {
+            showDescription(shownProfile.getAttribute('data-key'));
+        }
+    }
+
+    // Language switcher event
+    document.getElementById('language-select').addEventListener('change', function() {
+        currentLang = this.value;
+        updateLanguage();
+    });
+
+    // Initialize names and description
+    updateLanguage();
+    </script>
+</body>
+</html>
